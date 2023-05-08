@@ -1,0 +1,10 @@
+@import "../../../../assets/scss/global.scss";
+
+.container {
+    min-width: 283px;
+    height: calc(100vh - 100px);
+    background-color: $app-white;
+    box-shadow: 10px 0px 100px $app-light-shadow;
+    overflow-y: scroll;
+    padding: 39px 0px;
+}

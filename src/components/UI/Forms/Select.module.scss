@@ -1,0 +1,30 @@
+@import '../../../assets/scss/global.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+}
+.label {
+    color: $text-lightblue;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+.select {
+    color: $text-lightblue-faded;
+    padding: 12px 20px;
+    transition: outline ease-in-out 0.1s;
+    outline: 1px solid $text-darkblue-faded;
+    border-radius: 8px;
+    width: calc(100% - 40px);
+    &:focus {
+        outline: 2.5px solid $text-lightblue;
+    }
+}
+.options {
+    color: $text-lightblue-faded;
+    padding: 12px 20px;
+}

@@ -1,0 +1,22 @@
+$app-white: #FFF;
+$app-gray: #FBFBFB;
+$app-gray-shadow: rgba(0, 0, 0, 0.10);
+$app-light-shadow: rgba(0, 0, 0, 0.04);
+$text-lightblue: #545F7D;
+$text-lightblue-faded: rgba(84, 95, 125, 0.7);
+$text-darkblue: #213F7D;
+$text-darkblue-faded: rgba(33, 64, 125, 0.2);
+$app-coralblue: #39cdcc;
+$app-coralblue-light: rgb(57, 205, 204, 0.06);
+$app-red: #E4033B;
+$app-red-faded: rgba(228, 3, 59, 0.3);
+
+
+.scroll-custom::-webkit-scrollbar {
+   background-color: transparent;
+   width: 10px;
+}
+.scroll-custom::-webkit-scrollbar-thumb {
+   background-color: $app-gray-shadow;
+   border-radius: 6px;
+}

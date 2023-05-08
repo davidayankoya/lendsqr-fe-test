@@ -1,0 +1,42 @@
+@import '../../../../../../../assets/scss/global.scss';
+
+.section {
+    width: 100%;
+    padding: 30px 0px 0px;
+    border-bottom: 1px solid $text-darkblue-faded;
+    flex-direction: column;
+    .heading {
+        width: 100%;
+        margin-bottom: 30px;
+        .headingText {
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+    .body {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}
+
+.item {
+    color: $text-lightblue;
+    width: 20%;
+    margin-bottom: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+    .itemTitle {
+        font-weight: 400;
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+    .itemContentBody {
+        width: 80%;
+    }
+    .itemContent {
+        font-weight: 500;
+        font-size: 16px;
+        word-break: break-all;
+    }
+}

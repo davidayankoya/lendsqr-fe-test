@@ -1,0 +1,20 @@
+@import '../../../../../assets/scss/global.scss';
+
+.container {
+    flex-direction: column;
+}
+.stats {
+    width: 100%;
+    margin-bottom: 40px;
+    justify-content: space-between;
+}
+.blacklist > * {
+    background-color: $app-gray-shadow;
+}
+.inactive {
+    background-color: $app-red-faded;
+}
+.footer {
+    width: 100%;
+    padding: 20px 0px;
+}

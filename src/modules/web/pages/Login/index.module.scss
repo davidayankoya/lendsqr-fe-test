@@ -1,0 +1,79 @@
+@import '../../../../assets/scss/global.scss';
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: $app-white;
+    .left {
+        width: 736px;
+        min-height: 100vh;
+        padding: 50px 6%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        .logo {
+            width: 204px;
+            height: 50px;
+            margin-bottom: 100px;
+        }
+        .hero {
+            width: 100%;
+        }
+    }
+    .right {
+        width: 704px;
+        min-height: 100vh;
+        padding: 50px 6%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: -15px 0px 90px $app-light-shadow;
+        .textHeading {
+            width: 100%;
+            height: min-content;
+            margin-bottom: 10px;
+            .text {
+                font-family: 'Avenir Next';
+                font-weight: 700;
+                font-size: 40px;
+                letter-spacing: -0.04em;
+            }
+        }
+        .smallerText {
+            width: 100%;
+            margin-bottom: 60px;
+            .text {
+                font-family: 'Avenir Next';
+                font-size: 20px;
+                line-height: 27.32px;
+            }
+        }
+        .inputBox {
+            margin-bottom: 24px;
+            width: 100%;
+            .input {
+                padding: 17px 16px;
+                &::placeholder {
+                    font-size: 14px;
+                    color: $text-lightblue-faded;
+                }
+            }
+        }
+        .forgotPw {
+            font-family: 'Avenir Next';
+            color: $app-coralblue;
+            font-weight: 400;
+            font-size: 12px;
+            width: 100%;
+            margin-bottom: 30px;
+            letter-spacing: 0.1em;
+        }
+        .submit {
+            justify-content: center;
+            width: calc(100% - 65px);
+            font-size: 14px;
+            font-weight: 500;
+            font-family: 'Avenir Next';
+        }
+    }
+}

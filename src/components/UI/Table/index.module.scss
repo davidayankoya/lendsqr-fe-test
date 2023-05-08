@@ -1,0 +1,52 @@
+@import '../../../assets/scss/global.scss';
+
+.container {
+    overflow-x: scroll;
+    overflow-y: visible;
+    width: 100%;
+    background-color: $app-white;
+    border-radius: 5px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 3px 5px 20px $app-light-shadow;
+}
+
+.table {
+    width: 100%;
+    border-radius: 5px;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    .headCellBody {
+        padding-right: 20px;
+    }
+    .headCell {
+        padding: 0px 0px 30px;
+        min-width: max-content;
+        cursor: pointer;
+    }
+    .headCellText {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-right: 10px;
+    }
+    .bodyRow {
+        &:hover {
+            background-color: $app-coralblue-light;
+        }
+    }
+    .options {
+        &:hover {
+            background-color: $app-white;
+        }
+    }
+    .bodyCell {
+        border-bottom: 1px solid $text-darkblue-faded;
+        padding: 21px 0px 23px;
+        min-width: max-content;
+    }
+    .bodyCellText {
+        color: $text-lightblue;
+    }
+}

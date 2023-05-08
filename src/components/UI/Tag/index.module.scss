@@ -1,0 +1,11 @@
+@import '../../../assets/scss/global.scss';
+
+.container {
+    width: 100%;
+    background-color: $app-coralblue-light;
+    border-radius: 100px;
+    padding: 7px 13px;
+    font-weight: 400;
+    font-size: 14px;
+    color: $text-lightblue;
+}

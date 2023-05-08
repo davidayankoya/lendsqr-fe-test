@@ -1,0 +1,42 @@
+.container {
+    width: 100%;
+    justify-content: space-between;
+}
+.logo {
+    min-width: calc(283px - 30px);
+    height: 30px;
+    svg {
+        width: 150px;
+    }
+}
+.search {
+    width: 100%;
+    margin-left: 60px;
+}
+.left {
+    width: 54%;
+    justify-content: space-between;
+    align-items: center;
+}
+.right {
+    width: 46%;
+    justify-content: flex-end;
+    align-items: center;
+}
+.linkText {
+    text-decoration: underline;
+    margin-right: 50px;
+}
+.notification {
+    margin-right: 33px;
+    cursor: pointer;
+}
+.profilePic {
+    margin-right: 10px;
+    img {
+        border-radius: 50%;
+    }
+}
+.profileName {
+    cursor: pointer;
+}

@@ -1,0 +1,47 @@
+@import '../../../../../../../assets/scss/global.scss';
+
+.container {
+    color: $text-lightblue;
+    position: relative;
+    width: 18%;
+    justify-content: space-between;
+    align-items: center;
+    .showBtn {
+        color: $text-darkblue;
+        padding: 7px 12px;
+        display: flex;
+        width: max-content;
+        justify-content: space-between;
+        background-color: $text-darkblue-faded;
+        .icon {
+            margin-left: 10px;
+            transition: all ease-in-out 0.2s;
+        }
+        .iconActive {
+            transform: rotateZ(180deg);
+        }
+    }
+}
+
+.popContainer {
+    box-shadow: 3px 5px 20px $app-gray-shadow;
+    background-color: $app-white;
+    position: absolute;
+    bottom: 110%;
+    border-radius: 4px;
+    z-index: 2;
+    flex-direction: column;
+    padding: 28px 20px;
+    .filterBtns {
+        justify-content: space-between;
+    }
+    .btn {
+        width: 20%;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    .input {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}

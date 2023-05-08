@@ -1,0 +1,30 @@
+@import '../../../assets/scss/global.scss';
+
+
+.btn {
+    display: flex;
+    align-items: center;
+    padding: 16px 30px;
+    cursor: pointer;
+    transition: background-color ease-in-out 0.3s;
+    width: max-content;
+    letter-spacing: 0.1em;
+    &:hover {
+        filter: grayscale(40%);
+    }
+}
+.default {
+    background-color: $app-coralblue;
+    border-radius: 8px;
+    color: $app-white;
+
+}
+.outline {
+    background-color: $app-white;
+    border-radius: 8px;
+    border: 1.5px solid $text-lightblue;
+    &:hover {
+        background-color: $text-darkblue-faded;
+        color: $app-white;
+    }
+}
