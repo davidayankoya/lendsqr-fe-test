@@ -7,7 +7,7 @@ interface AuthState {
     isAuthenticated: boolean;
 }
 interface Credentials { 
-    username: string;
+    email: string;
     password: string;
 }
 
@@ -20,8 +20,8 @@ const sampleUser: User = {
 }
 
 const initialState : AuthState = {
-    user: sampleUser,
-    isAuthenticated: true
+    user: null,
+    isAuthenticated: false
 }
 
 export const authSlice = createSlice({
