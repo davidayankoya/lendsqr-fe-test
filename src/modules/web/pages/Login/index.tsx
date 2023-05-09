@@ -1,7 +1,7 @@
 import React, { FormEvent, useState, MouseEventHandler } from 'react'
 import style from './index.module.scss'
 import { Button, Input, Text } from 'components/UI'
-import { ReactComponent as CompanyLogo } from 'assets/icons/company-logo.svg'
+import CompanyLogo from 'assets/icons/company-logo.svg'
 import { ReactComponent as LoginHero } from 'assets/img/sign-in-hero.svg'
 import { formController } from 'utils'
 import { NavLink as Link, Navigate } from "react-router-dom";
@@ -36,9 +36,12 @@ function Login() {
 
     return (
         <div className={style.container}>
+            <div className={style.mobLogo}>
+                <img src={CompanyLogo} alt='company logo'/>
+            </div>
             <div className={style.left}>
                 <div className={style.logo}>
-                    <CompanyLogo/>
+                    <img src={CompanyLogo} alt='company logo'/>
                 </div>
                 <div className={style.hero}>
                     <LoginHero/>
