@@ -36,9 +36,6 @@ function Login() {
 
     return (
         <div className={style.container}>
-            <div className={style.mobLogo}>
-                <img src={CompanyLogo} alt='company logo'/>
-            </div>
             <div className={style.left}>
                 <div className={style.logo}>
                     <img src={CompanyLogo} alt='company logo'/>
@@ -48,6 +45,9 @@ function Login() {
                 </div>
             </div>
             <div className={style.right}>
+                <div className={style.mobLogo}>
+                    <img src={CompanyLogo} alt='company logo'/>
+                </div>
                 <div className={style.textHeading}>
                     <Text className={style.text}>Welcome!</Text>
                 </div>
