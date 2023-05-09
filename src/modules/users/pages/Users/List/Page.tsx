@@ -8,7 +8,7 @@ import UsersWithSavingsIcon from 'assets/icons/stat-users-with-savings.svg'
 import style from './Page.module.scss'
 import { useAppSelector } from 'store/hooks'
 import { Pagination } from 'components/UI'
-import { alphaSort, dateSort } from 'utils'
+import { alphaSort, dateSort, momentDate } from 'utils'
 
 
 interface FilterDataProps { 
@@ -23,10 +23,9 @@ interface FilterDataProps {
 function Page() {
     const users = useAppSelector(s => s.users.data)
 
-    const [pageNumber, setPageNumber] = useState(1)
+    const [pageNumber, setPageNumber] = useState(0)
     const itemsPerPage = 10;
     const offset = pageNumber * itemsPerPage;
-    const pageCount = Math.ceil(users.length / itemsPerPage);
     const paginateUsers = (users = []) => users.slice(offset, offset + itemsPerPage)
     const handlePageChange = ({ selected }) => {
         setPageNumber(selected);
@@ -38,17 +37,41 @@ function Page() {
     const sortData = (key: string) => {
         setState((prev) => ({ ...prev, sortBy: key }))
     }
-    const localFilter = (arr = [], sortKey: string) => {
-        let newArr = arr.filter(c =>
-            Object.keys(filter).every(e => filter[e] === '' ? true : c[e] === filter[e])
+    // const localFilter = (arr = [], sortKey: string) => {
+    //     let newArr = arr.filter(c =>
+    //         Object.keys(filter).every(e =>
+    //             filter[e] === '' ? true :
+    //                 ['userName', 'email'].includes(e) ? String(c[e]).toLowerCase().startsWith(String(filter[e]).toLowerCase()) :
+    //                 e === 'lastActiveDate' ? momentDate(c[e]) === momentDate(filter[e]) :
+    //                 c[e] === filter[e]
+    //                 )
+    //                 )
+    //                 if (sortKey === 'lastActiveDate') {
+    //                     newArr = dateSort(newArr, sortKey)
+    //                 } else if (!!sortKey) {
+    //                     newArr = alphaSort(newArr, sortKey)
+    //     }
+    //     console.log(newArr)
+    //     return paginateUsers(newArr)
+    // }
+    const filteredUsers = useMemo(() => {
+        let newArr = users.filter(c =>
+            Object.keys(filter).every(e =>
+                filter[e] === '' ? true :
+                ['userName', 'email'].includes(e) ? String(c[e]).toLowerCase().startsWith(String(filter[e]).toLowerCase()) :
+                e === 'lastActiveDate' ? momentDate(c[e]) === momentDate(filter[e]) :
+                c[e] === filter[e]
+            )
         )
-        if (sortKey.includes('date')) {
-            newArr = dateSort(newArr, sortKey)
-        } else {
-            newArr = alphaSort(newArr, sortKey)
+        if (state.sortBy === 'lastActiveDate') {
+            newArr = dateSort(newArr, state.sortBy)
+        } else if (!!state.sortBy) {
+            newArr = alphaSort(newArr, state.sortBy)
         }
         return paginateUsers(newArr)
-    }
+    }, [state.sortBy, users, filter])
+
+    const pageCount = Math.ceil((Object.keys(filter).length > 0 ? filteredUsers.length : users.length) / itemsPerPage);
 
     const stats = useMemo(() => {
         return {
@@ -58,6 +81,7 @@ function Page() {
             totalUsersWithSavings: 0,
         }
     }, [users])
+
 
     return (
         <div className={`${style.container} scroll-custom`}>
@@ -88,14 +112,14 @@ function Page() {
 
             <UsersTable
                 users={users}
-                filtered={localFilter(users, state.sortBy)}
+                filtered={filteredUsers}
                 onSort={sortData}
             />
             
             <div className={style.footer}>
                 <Filter
                     onFilter={() => {}}
-                    filteredSize={localFilter(users, state.sortBy).length}
+                    filteredSize={filteredUsers.length}
                     totalSize={users.length}
                     data={filter}
                     setData={setFilter}

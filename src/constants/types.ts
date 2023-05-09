@@ -1,4 +1,3 @@
-import { MomentLongDateFormat } from "moment";
 
 export interface User {
     id: number;

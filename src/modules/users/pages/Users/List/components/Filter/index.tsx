@@ -70,8 +70,8 @@ export function Filter(props: FilterProps) {
                     />
                     <Input
                         label='Username'
-                        name='username'
-                        value={props.data.username}
+                        name='userName'
+                        value={props.data.userName}
                         placeholder='User'
                         onChange={controller}
                         containerClass={style.input}
@@ -86,8 +86,8 @@ export function Filter(props: FilterProps) {
                     />
                     <Input
                         label='Date'
-                        name='date'
-                        value={inputDateFormat(props.data.date)}
+                        name='lastActiveDate'
+                        value={inputDateFormat(props.data?.lastActiveDate)}
                         placeholder='Date'
                         type='date'
                         onChange={controller}

@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { Customer } from 'constants/types'
 import { updateUser } from 'features/usersSlice'
 import { useAppDispatch } from 'store/hooks'
+import { toast } from 'react-hot-toast'
 const tableFields = [
     { name: 'ORGANIZATION', key: 'orgName'},
     { name: 'USERNAME', key: 'userName'},
@@ -31,10 +32,12 @@ export function UsersTable(props: UsersTableProps) {
     const dispatch = useAppDispatch()
         
     const toggleBlacklistUser = (user) => {
-        dispatch(updateUser([user.id, { ...user, isBlacklisted: !user.isBlacklisted }] ))
+        dispatch(updateUser([user.id, { ...user, isBlacklisted: !user.isBlacklisted }]))
+        toast.success('User Blacklisted!', { duration: 4000 })
     } 
     const toggleActivateUser = (user) => {
-        dispatch(updateUser([user.id, { ...user, status: user.status === 'Active' ? 'Inactive' : 'Active' }] ))
+        dispatch(updateUser([user.id, { ...user, status: user.status === 'Active' ? 'Inactive' : 'Active' }]))
+        toast.success(`User ${user.status === 'Active' ? 'Deactivated' : 'Activated'!}`, { duration: 4000 })
     }
     
 

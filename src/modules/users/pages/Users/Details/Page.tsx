@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from 'store/hooks'
 import { Section, SectionItem } from './components'
 import { useParams } from 'react-router-dom'
 import { Customer } from 'constants/types'
+import { toast } from 'react-hot-toast'
 
 
 function Page() {
@@ -15,10 +16,12 @@ function Page() {
     const user: Customer = users.find(e => e.id === userId)
     
     const blacklistUser = () => {
-        dispatch(updateUser([user.id, { ...user, isBlacklisted: !user?.isBlacklisted }] ))
+        dispatch(updateUser([user.id, { ...user, isBlacklisted: !user?.isBlacklisted }]))
+        toast.success('User Blacklisted!', { duration: 4000 })
     } 
     const toggleActivateUser = () => {
-        dispatch(updateUser([user.id, { ...user, status: user.status === 'Active' ? 'Inactive' : 'Active' }] ))
+        dispatch(updateUser([user.id, { ...user, status: user.status === 'Active' ? 'Inactive' : 'Active' }]))
+        toast.success(`User ${user.status === 'Active' ? 'Deactivated' : 'Activated'!}`, { duration: 4000 })
     } 
 
     return (

@@ -4,7 +4,7 @@ export function allCaps(text: string) {
     return String(text).toUpperCase()
 }
 export function momentDate(date = '') {
-    return date === '' ? date : moment(date ?? '').format('YYYY-MM-DDTHH:mm') 
+    return date === '' ? date : moment(date ?? '').format('YYYY-MM-DD') 
 }
 export function inputDateFormat(date = '') {
     return date ? moment(date).format("YYYY-MM-DD") : '' 
