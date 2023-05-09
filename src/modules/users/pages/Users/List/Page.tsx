@@ -1,5 +1,5 @@
 import { PageHeading } from 'components/common/PageHeading'
-import { useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { Filter, StatBox, UsersTable }  from './components'
 import UsersIcon from 'assets/icons/stat-users.svg'
 import ActiveUsersIcon from 'assets/icons/stat-active-users.svg'
@@ -26,7 +26,7 @@ function Page() {
     const [pageNumber, setPageNumber] = useState(0)
     const itemsPerPage = 10;
     const offset = pageNumber * itemsPerPage;
-    const paginateUsers = (users = []) => users.slice(offset, offset + itemsPerPage)
+    const paginateUsers = useCallback((users = []) => users.slice(offset, offset + itemsPerPage), [offset])
     const handlePageChange = ({ selected }) => {
         setPageNumber(selected);
     }
@@ -37,23 +37,7 @@ function Page() {
     const sortData = (key: string) => {
         setState((prev) => ({ ...prev, sortBy: key }))
     }
-    // const localFilter = (arr = [], sortKey: string) => {
-    //     let newArr = arr.filter(c =>
-    //         Object.keys(filter).every(e =>
-    //             filter[e] === '' ? true :
-    //                 ['userName', 'email'].includes(e) ? String(c[e]).toLowerCase().startsWith(String(filter[e]).toLowerCase()) :
-    //                 e === 'lastActiveDate' ? momentDate(c[e]) === momentDate(filter[e]) :
-    //                 c[e] === filter[e]
-    //                 )
-    //                 )
-    //                 if (sortKey === 'lastActiveDate') {
-    //                     newArr = dateSort(newArr, sortKey)
-    //                 } else if (!!sortKey) {
-    //                     newArr = alphaSort(newArr, sortKey)
-    //     }
-    //     console.log(newArr)
-    //     return paginateUsers(newArr)
-    // }
+    
     const filteredUsers = useMemo(() => {
         let newArr = users.filter(c =>
             Object.keys(filter).every(e =>
@@ -69,7 +53,7 @@ function Page() {
             newArr = alphaSort(newArr, state.sortBy)
         }
         return paginateUsers(newArr)
-    }, [state.sortBy, users, filter])
+    }, [state.sortBy, users, filter, paginateUsers])
 
     const pageCount = Math.ceil((Object.keys(filter).length > 0 ? filteredUsers.length : users.length) / itemsPerPage);
 
