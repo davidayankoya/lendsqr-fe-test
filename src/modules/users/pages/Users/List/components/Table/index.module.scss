@@ -1,0 +1,14 @@
+@import '../../../../../../../assets/scss/global.scss';
+
+.blacklist {
+    background-color: $app-gray-shadow !important;
+}
+.inactive {
+    background-color: $app-red-faded !important;
+}
+.emptyList {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}

@@ -6,11 +6,12 @@ import { Text } from 'components/UI';
 interface SectionProps {
     children: React.ReactNode;
     title: string;
+    isLast?: boolean;
 }
 
 export function Section(props : SectionProps) {
     return (
-        <div className={style.section}>
+        <div className={`${style.section} ${props.isLast ? style.last : ''}`}>
             <div className={style.heading}>
                 <Text className={style.headingText}>{props.title}</Text>
             </div>

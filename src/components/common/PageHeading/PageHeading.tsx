@@ -12,7 +12,7 @@ export function PageHeading({ children, title } : PageHeadingProps) {
     return (
         <div className={style.container}>
             <Text className={style.title}>{title}</Text>
-            <div>{children}</div>
+            <div className={style.children}>{children}</div>
         </div>
     )
 }

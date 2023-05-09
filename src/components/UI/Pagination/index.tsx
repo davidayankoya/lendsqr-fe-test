@@ -1,19 +1,36 @@
-import React from 'react'
-import style from './index.module.scss'
-import CaretLeftIcon from 'assets/icons/caret-left.svg'
-import CaretRightIcon from 'assets/icons/caret-right.svg'
-import { Text } from '../Text';
+import React, { memo } from 'react'
+import ReactPaginate from 'react-paginate';
+import './index.scss'
 
 interface PaginationProps {
-    onPageChange?: Function;
-    pageNumber?: number;
+    onPageChange: (selectedItem: { selected: number; }) => void;
+    pageCount: number;
+    className?: string;
 }
 
-export function Pagination(props: PaginationProps) {
-
+function Pagination(props: PaginationProps) {
     return (
-        <div className={style.container}>
-            
-        </div>
+        <ReactPaginate
+            breakLabel="..."
+            nextLabel=">"
+            previousLabel="<"
+            onPageChange={props.onPageChange}
+            pageRangeDisplayed={3}
+            className={props.className}
+            pageCount={props.pageCount}
+            renderOnZeroPageCount={null}
+            pageClassName={"pagination-item"}
+            pageLinkClassName={"pagination-link"}
+            previousClassName={"pagination-item"}
+            previousLinkClassName={"pagination-link"}
+            nextClassName={"pagination-item"}
+            nextLinkClassName={"pagination-link"}
+            breakClassName={"pagination-item"}
+            breakLinkClassName={"pagination-link"}
+            containerClassName={"pagination"}
+            activeClassName={"active"}
+        />
     )
 }
+
+export default memo(Pagination)

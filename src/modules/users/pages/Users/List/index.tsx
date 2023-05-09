@@ -1,19 +1,24 @@
 import React, { useEffect } from 'react'
 import Page from './Page'
-import { useAppDispatch } from 'store/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { listUsers } from 'features/usersSlice';
+import { PageLoadWrapper } from 'components/common/PageLoadWrapper';
 
 function Index() {
     const dispatch = useAppDispatch()
+    const { data: users, loading } = useAppSelector(s => s.users)
 
     useEffect(() => {
-        dispatch(listUsers())
-    }, [dispatch]);
+        if (users.length === 0) {
+            dispatch(listUsers())
+        }
+    // eslint-disable-next-line
+    }, []);
 
     return (
-        <React.Fragment>
+        <PageLoadWrapper isLoading={[!loading]}>
             <Page/>
-        </React.Fragment>
+        </PageLoadWrapper>
     )
 }
 

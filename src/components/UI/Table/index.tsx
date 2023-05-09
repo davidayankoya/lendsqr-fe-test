@@ -9,6 +9,7 @@ interface TableProps {
     children?: React.ReactNode;
     containerClass?: string;
     onClickHeading?: Function;
+    isEmpty?: boolean;
 }
 
 export function Table(props: TableProps) {
@@ -31,10 +32,11 @@ export function Table(props: TableProps) {
                         ))}
                     </tr>
                 </thead>
-                {props.children &&
+                {!props.isEmpty && props.children &&
                     <tbody className={style.body}>{props.children}</tbody>
                 }
             </table>
+            {props.isEmpty && props.children}
         </div>
     )
 }
@@ -51,7 +53,7 @@ export function TableRow(props: TableRowProps) {
     return (
         <tr onClick={props.onClick} className={`${style.bodyRow} ${props.rowClass}`}>
             {props.data.map((e, i, arr) => (
-                <td key={i}>
+                <td key={i} className={style.bodyCellBody}>
                     <div className={style.bodyCell}>
                         <Text className={style.bodyCellText}>{e}</Text>
                     </div>

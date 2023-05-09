@@ -1,0 +1,17 @@
+
+.container {
+    width: 100%;
+    height: calc(100vh - 100px);
+    align-items: center;
+    justify-content: center;
+}
+.text {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+@media (min-width: 1440px) {
+    .text {
+        font-size: 30px;
+    }
+}

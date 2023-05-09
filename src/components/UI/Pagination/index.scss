@@ -1,0 +1,55 @@
+@import '../../../assets/scss/global.scss';
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    width: 96%;
+    margin-top: 40px;
+    list-style: none;
+    font-size: 14px;
+    margin-bottom: 15px;
+    overflow-x: scroll;
+
+    .pagination-link {
+        display: flex;
+        justify-content: center;
+        color: $text-lightblue;
+        text-decoration: none;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+        border-radius: 4px;
+        padding: 10px; 
+        cursor: pointer;
+        &:hover {
+            background-color: $app-gray-shadow;
+            border-color: $app-gray-shadow;
+        }
+    }
+    .pagination-item {
+        &.active .pagination-link {
+            pointer-events: none;
+            border: 1px solid $text-darkblue;
+        }
+        &:first-child .pagination-link {
+            background-color: $text-darkblue-faded;
+            color: $text-darkblue;
+        }
+        &:last-child .pagination-link {
+            background-color: $text-darkblue-faded;
+            color: $text-darkblue;
+        }
+    }
+}
+
+
+@media (min-width: 1440px) {
+    .pagination {
+        width: 30%;
+        display: flex;
+        justify-content: flex-end;
+        overflow-x: initial;
+
+        .pagination-link {
+            padding: 10px 15px; 
+        }
+    }
+}

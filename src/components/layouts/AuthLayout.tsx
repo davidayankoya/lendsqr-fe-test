@@ -2,7 +2,7 @@ import React, { LazyExoticComponent } from 'react'
 import SidebarNav from './navs/desktop/SidebarNav'
 import NavHeader from './navs/desktop/NavHeader'
 import { SidebarMenu } from 'components/common/Sidebar'
-import Header from 'components/common/Header/Header'
+import { Header } from 'components/common/Header'
 import navItems from 'constants/navigation'
 
 interface AuthLayoutProps {
@@ -10,6 +10,7 @@ interface AuthLayoutProps {
 }
 
 export function AuthLayout({ children }: AuthLayoutProps) {
+
     return (
         <div className='app'>
             <div className='page-container'>

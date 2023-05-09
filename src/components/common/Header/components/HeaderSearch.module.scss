@@ -1,19 +1,22 @@
+
+
 .container {
-    display: flex;
     align-items: center;
     width: 400px;
 }
-
 .inputContainer {
     width: 95%;
 }
 .input {
     border-top-right-radius: 0px !important;
     border-bottom-right-radius: 0px !important;
-    // outline: 0px;
 }
 .button {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     width: 5%;
+}
+
+/* (Desktop)*/
+@media (min-width: 1440px) {
 }

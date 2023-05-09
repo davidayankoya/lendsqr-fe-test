@@ -1,5 +1,4 @@
 import { Breadcrumb, PageHeading } from 'components/common/PageHeading'
-import React from 'react'
 import style from './Page.module.scss'
 import { Button } from 'components/UI'
 import { updateUser } from 'features/usersSlice'
@@ -72,7 +71,7 @@ function Page() {
                     <SectionItem title='Email Address' content={user?.guarantor?.email}/>
                     <SectionItem title='Relationship' content={user?.guarantor?.relationship}/>
                 </Section>
-                <Section title=''>
+                <Section title='' isLast>
                     <SectionItem title='Full Name' content={user?.socials?.twitter}/>
                     <SectionItem title='Phone Number' content={user?.socials?.facebook}/>
                     <SectionItem title='Email Address' content={user?.socials?.instagram}/>

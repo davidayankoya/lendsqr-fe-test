@@ -1,14 +1,17 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { Customer } from 'constants/types'
 import { api } from 'utils/axios'
+import { toggleLoading } from './uiSlice';
 
 interface UsersState {
     data: Customer[];
+    loading: boolean;
     error: boolean;
 }
 
 const initialState : UsersState = {
     data: [],
+    loading: false,
     error: false,
 }
 
@@ -24,12 +27,17 @@ export const usersSlice = createSlice({
         },
     },
     extraReducers(builder) {
+        builder.addCase(listUsers.pending, (state, action) => {
+            state.loading = true
+        })
         builder.addCase(listUsers.fulfilled, (state, action) => {
             state.data = action.payload['data']
+            state.loading = false
             state.error = action.payload['error']
         })
         builder.addCase(listUsers.rejected, (state, action) => {
             state.data = action.payload['data']
+            state.loading = false
             state.error = action.payload['error']
         })
     }
@@ -38,13 +46,16 @@ export const usersSlice = createSlice({
 export const listUsers = createAsyncThunk(
     "users/list",
     async (data, thunkAPI) => {
+        thunkAPI.dispatch(toggleLoading(true))
         try {
             const res = await api.get('/users')
+            res && thunkAPI.dispatch(toggleLoading(false))
             return {
                 data: res.data.map(e => ({ ...e, status: 'Active', isBlacklisted: false })),
                 error: false,
             }
-        } catch (error: any) { 
+        } catch (error: any) {
+            thunkAPI.dispatch(toggleLoading(true))
             return {
                 data: [],
                 error: true

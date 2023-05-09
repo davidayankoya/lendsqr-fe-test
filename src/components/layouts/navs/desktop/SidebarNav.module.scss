@@ -1,10 +1,37 @@
 @import "../../../../assets/scss/global.scss";
 
+
+/* (Mobile)*/
 .container {
+    display: none;
+    position: absolute;
     min-width: 283px;
     height: calc(100vh - 100px);
     background-color: $app-white;
     box-shadow: 10px 0px 100px $app-light-shadow;
     overflow-y: scroll;
     padding: 39px 0px;
+    animation: slide-in 0.3s;
+    &.openSidebar {
+        display: flex;
+        width: 80%;
+        z-index: 2;
+    }
+}
+
+/* (Desktop)*/
+@media (min-width: 1440px) {
+    .container {
+        display: flex;
+        position: initial;
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%)
+    }
+    100% {
+        transform: translateX(0%)
+    }
 }

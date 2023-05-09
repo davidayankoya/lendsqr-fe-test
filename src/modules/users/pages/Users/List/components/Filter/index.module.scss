@@ -3,9 +3,11 @@
 .container {
     color: $text-lightblue;
     position: relative;
-    width: 18%;
+    min-width: 65%;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
     .showBtn {
         color: $text-darkblue;
         padding: 7px 12px;
@@ -44,4 +46,14 @@
         margin-bottom: 20px;
         width: 100%;
     }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        min-width: auto;
+        width: 23%;
+        flex-wrap: nowrap;
+        margin-bottom: 0px;
+    }
+
 }

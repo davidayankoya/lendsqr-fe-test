@@ -23,7 +23,6 @@ export function Menu(props: MenuProps) {
         e.stopPropagation();
         func();
         setIsOpen(() => false);
-        console.log('doings')
     }
 
     useEffect(() => {
