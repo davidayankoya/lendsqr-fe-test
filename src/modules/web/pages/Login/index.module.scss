@@ -24,14 +24,13 @@
     .right {
         width: 100%;
         min-height: 100vh;
-        padding: 50px 6%;
+        padding: 30px 6%;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         box-shadow: -15px 0px 90px $app-light-shadow;
         .mobLogo {
             width: 100%;
-            justify-content: center;
             margin-bottom: 50px;
             img {
                 width: 150px;
@@ -97,5 +96,8 @@
     }
     .right {
         width: 704px;
+        padding: 50px 6%;
+        align-items: center;
+        justify-content: center;
     }
 }
