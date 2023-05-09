@@ -33,7 +33,7 @@ export function UsersTable(props: UsersTableProps) {
         
     const toggleBlacklistUser = (user) => {
         dispatch(updateUser([user.id, { ...user, isBlacklisted: !user.isBlacklisted }]))
-        toast.success('User Blacklisted!', { duration: 4000 })
+        toast.success(`User ${user.isBlacklisted ? 'Removed from Blacklist' : 'Blacklisted!'}`, { duration: 4000 })
     } 
     const toggleActivateUser = (user) => {
         dispatch(updateUser([user.id, { ...user, status: user.status === 'Active' ? 'Inactive' : 'Active' }]))

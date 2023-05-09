@@ -17,7 +17,7 @@ function Page() {
     
     const blacklistUser = () => {
         dispatch(updateUser([user.id, { ...user, isBlacklisted: !user?.isBlacklisted }]))
-        toast.success('User Blacklisted!', { duration: 4000 })
+        toast.success(`User ${user.isBlacklisted ? 'Removed from Blacklist' : 'Blacklisted!'}`, { duration: 4000 })
     } 
     const toggleActivateUser = () => {
         dispatch(updateUser([user.id, { ...user, status: user.status === 'Active' ? 'Inactive' : 'Active' }]))
