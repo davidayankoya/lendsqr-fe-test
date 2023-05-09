@@ -4,7 +4,16 @@
     width: 100%;
     min-height: 100vh;
     background-color: $app-white;
+    .mobLogo {
+        width: 100%;
+        margin-bottom: 100px;
+        img {
+            width: 150px;
+            height: 50px
+        }
+    }
     .left {
+        display: none;
         width: 736px;
         min-height: 100vh;
         padding: 50px 6%;
@@ -21,7 +30,7 @@
         }
     }
     .right {
-        width: 704px;
+        width: 100%;
         min-height: 100vh;
         padding: 50px 6%;
         flex-direction: column;
@@ -75,5 +84,17 @@
             font-weight: 500;
             font-family: 'Avenir Next';
         }
+    }
+}
+
+@media (min-width: 1440px) {
+    .mobLogo {
+        display: none;
+    }
+    .left {
+        display: flex;
+    }
+    .right {
+        width: 704px;
     }
 }
