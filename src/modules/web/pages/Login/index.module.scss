@@ -44,7 +44,7 @@
             .text {
                 font-family: 'Avenir Next';
                 font-weight: 700;
-                font-size: 40px;
+                font-size: 30px;
                 letter-spacing: -0.04em;
             }
         }
@@ -53,7 +53,7 @@
             margin-bottom: 60px;
             .text {
                 font-family: 'Avenir Next';
-                font-size: 20px;
+                font-size: 15px;
                 line-height: 27.32px;
             }
         }
@@ -99,5 +99,11 @@
         padding: 50px 6%;
         align-items: center;
         justify-content: center;
+        .textHeading .text {
+             font-size: 40px;
+        }
+        .smallerText .text {
+             font-size: 20px;
+        }
     }
 }
