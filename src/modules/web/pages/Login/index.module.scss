@@ -32,8 +32,9 @@
         .mobLogo {
             width: 100%;
             margin-bottom: 50px;
+            justify-content: center;
             img {
-                width: 150px;
+                width: 130px;
                 height: 50px
             }
         }
@@ -88,22 +89,24 @@
 }
 
 @media (min-width: 1440px) {
-    .mobLogo {
-        display: none;
-    }
-    .left {
-        display: flex;
-    }
-    .right {
-        width: 704px;
-        padding: 50px 6%;
-        align-items: center;
-        justify-content: center;
-        .textHeading .text {
-             font-size: 40px;
+    .container {
+        .mobLogo {
+            display: none;
         }
-        .smallerText .text {
-             font-size: 20px;
+        .left {
+            display: flex;
+        }
+        .right {
+            width: 704px;
+            padding: 50px 6%;
+            align-items: center;
+            justify-content: center;
+            .textHeading .text {
+                 font-size: 40px;
+            }
+            .smallerText .text {
+                 font-size: 20px;
+            }
         }
     }
 }
