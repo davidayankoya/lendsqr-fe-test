@@ -1,6 +1,25 @@
+@import '../../../../assets/scss/global.scss';
+
 .container {
     display: flex;
+    position: relative;
 }
 .text {
     margin-right: 10px;
+}
+.popupContainer {
+    background-color: $app-white;
+    width: max-content;
+    box-shadow: 3px 5px 20px $app-gray-shadow;
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 15px;
+    position: absolute;
+    top: 25px;
+    .popupItem {
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

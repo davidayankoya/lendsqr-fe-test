@@ -33,9 +33,12 @@
         justify-content: flex-start;
         align-items: center;
         box-shadow: -15px 0px 90px $app-light-shadow;
+        form {
+            width: 100%;
+        }
         .mobLogo {
             width: 100%;
-            margin-bottom: 50px;
+            margin-bottom: 25%;
             justify-content: center;
             img {
                 width: 130px;

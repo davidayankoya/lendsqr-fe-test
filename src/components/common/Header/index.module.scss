@@ -12,7 +12,7 @@
     height: 30px;
     svg {
         width: 130px;
-        height: 60px;
+        height: 45px;
     }
 }
 .search {
@@ -21,13 +21,13 @@
     margin-left: 60px;
 }
 .left {
-    width: 54%;
+    width: 64%;
     justify-content: space-between;
     align-items: center;
     padding-right: 20px;
 }
 .right {
-    width: 46%;
+    width: 36%;
     justify-content: flex-end;
     align-items: center;
 }
@@ -62,6 +62,7 @@
         min-width: calc(283px - 30px);
         svg {
             width: 150px;
+            height: 60px;
         }
     }
     .search {
@@ -69,6 +70,10 @@
     }
     .left {
         padding-right: 0px;
+        width: 54%;
+    }
+    .right {
+        width: 46%;
     }
     .linkText {
         display: flex;

@@ -8,6 +8,7 @@ interface ButtonProps {
     color?: string;
     textColor?: string;
     onClick?: MouseEventHandler<HTMLButtonElement>;
+    type?: "button" | "submit" | "reset";
 }
 
 export function Button(props: ButtonProps) {
@@ -16,6 +17,7 @@ export function Button(props: ButtonProps) {
             className={`${style.btn} ${props.variant === 'outline' ? style.outline : style.default} ${props.className}`}
             // style={{ borderColor: props.variant === 'outline' ? props.color : 'initial', backgroundColor: props.variant === 'outline' ? props.color : 'initial', color: props.textColor }}
             onClick={props.onClick}
+            type={props.type}
         >
             {props.children}
         </button>
