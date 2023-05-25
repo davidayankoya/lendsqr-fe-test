@@ -10,7 +10,6 @@ import { useAppSelector } from 'store/hooks'
 import { Pagination } from 'components/UI'
 import { alphaSort, dateSort, momentDate } from 'utils'
 
-
 interface FilterDataProps { 
     organization: string;
     username: string;

@@ -35,8 +35,8 @@ export function Menu(props: MenuProps) {
     return (
         <div className={style.container} onClick={handleOpen}>
             <img src={ThreeEllipses} alt='menu options' className={style.optionsBtn} />
-            
-            {isOpen && 
+
+            {isOpen &&
                 <div className={style.popContainer} ref={popRef}>
                     {props.options && props.options.map((option, index) => (
                         <div className={style.option} onClick={(e) => handleUseOption(e, option.onUse)} key={index}>

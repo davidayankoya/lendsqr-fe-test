@@ -15,6 +15,8 @@ export function AuthWrapper({ children, redirectTo }: AuthWrapperProps) {
     useEffect(() => {
         if (!isAuthenticated) {
             dispatch(checkAuth())
+        } else if(!user){
+            // dispatch(fetchUser())
         }
     }, [dispatch, isAuthenticated, user])
 
